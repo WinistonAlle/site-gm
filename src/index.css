@@ -158,6 +158,10 @@ body {
   padding-right: 0;
 }
 
+.mobile-nav-links {
+  display: none;
+}
+
 .top-socials {
   display: flex;
   align-items: center;
@@ -1961,8 +1965,8 @@ h2 {
   }
 
   .hero-story-overlay {
-    gap: 10px;
-    padding: 24px 16px;
+    gap: 12px;
+    padding: 26px 18px;
   }
 
   .hero-cta-row,
@@ -1970,13 +1974,54 @@ h2 {
     width: 100%;
   }
 
-  .nav {
-    grid-template-columns: auto auto;
-    justify-content: space-between;
-    gap: 12px;
+  .hero-cta-row {
+    justify-content: stretch;
   }
-  .nav-links { display: none; }
+
+  .hero-cta-row .hero-story-cta {
+    flex: 1 1 220px;
+    text-align: center;
+  }
+
+  .nav {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 14px;
+    border-radius: 28px;
+    padding: 14px;
+  }
+  .nav-links,
   .nav-locate { display: none; }
+  .nav-right {
+    justify-self: end;
+  }
+  .nav-right > .btn {
+    height: 44px;
+    padding-inline: 18px;
+    font-size: 0.92rem;
+  }
+  .brand {
+    justify-self: start;
+    padding: 0;
+  }
+  .brand img {
+    width: 114px;
+  }
+  .mobile-nav-links {
+    display: flex;
+    grid-column: 1 / -1;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding-top: 2px;
+  }
+  .mobile-nav-links .nav-link-pill {
+    min-height: 42px;
+    padding-inline: 18px;
+    font-size: 0.88rem;
+  }
+  .mobile-nav-cta {
+    min-height: 42px;
+  }
   .two-cols { grid-template-columns: 1fr; }
   .top-socials { display: none; }
 
@@ -2062,6 +2107,37 @@ h2 {
     padding: 12px;
   }
 
+  .form-submit {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-submit .btn,
+  .contact-quick-actions .btn,
+  .product-summary-actions .btn,
+  .unit-actions .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .broa-card-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .broa-badge {
+    white-space: normal;
+  }
+
+  .broa-product-shot {
+    aspect-ratio: 1 / 1.08;
+  }
+
+  .broa-nutrition-box {
+    max-height: none;
+  }
+
   .footer-grid {
     padding-top: 16px;
   }
@@ -2095,6 +2171,24 @@ h2 {
     width: min(100%, calc(100vw - 28px));
   }
 
+  .hero {
+    padding: 14px 0 28px;
+  }
+
+  .hero-story-banner {
+    min-height: 340px;
+  }
+
+  .hero-story-overlay h1 {
+    font-size: clamp(2rem, 11vw, 3rem);
+    line-height: 0.98;
+  }
+
+  .hero-story-overlay p {
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+
   .spotlight-panel {
     min-height: 280px;
   }
@@ -2108,6 +2202,7 @@ h2 {
   }
 
   .product-grid {
+    grid-template-columns: 1fr;
     gap: 12px;
   }
 
@@ -2124,10 +2219,80 @@ h2 {
     font-size: 0.94rem;
   }
 
+  .product-summary-shell {
+    padding: 18px;
+    gap: 14px;
+  }
+
+  .product-summary-copy h2 {
+    max-width: none;
+  }
+
+  .product-summary-metrics article {
+    min-height: auto;
+  }
+
+  .broa-card {
+    padding: 18px;
+  }
+
+  .broa-card-head h2 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  .broa-card-text,
+  .broa-ingredient-box p,
+  .broa-accordion p,
+  .prep-step p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .broa-highlight-row span {
+    min-height: 34px;
+    padding-inline: 12px;
+    font-size: 0.82rem;
+  }
+
+  .broa-ingredient-box,
+  .broa-nutrition-box,
+  .broa-accordion details {
+    padding: 14px;
+  }
+
+  .prep-card {
+    padding: 18px;
+  }
+
+  .prep-grid {
+    gap: 10px;
+  }
+
+  .prep-step {
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .contact-list,
+  .contact-form {
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .unit-map iframe {
+    min-height: 300px;
+  }
+
   .floating-whatsapp {
-    left: 14px;
-    right: 14px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
     justify-content: center;
+    padding: 11px 14px;
+  }
+
+  .floating-whatsapp span {
+    font-size: 0.84rem;
   }
 }
 

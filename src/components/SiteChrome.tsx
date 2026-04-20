@@ -63,6 +63,8 @@ export function SiteNav({
   ctaLabel?: string;
   homeAsAnchor?: boolean;
 }) {
+  const locationHref = homeAsAnchor ? "#unidade" : "/#unidade";
+
   return (
     <div className="shell">
       <nav className="nav glass reveal">
@@ -72,7 +74,7 @@ export function SiteNav({
               {item.label}
             </a>
           ))}
-          <a href="#unidade" className="btn btn-ghost small nav-link-pill nav-locate">
+          <a href={locationHref} className="btn btn-ghost small nav-link-pill nav-locate">
             Localização
           </a>
         </div>
@@ -92,6 +94,20 @@ export function SiteNav({
             <SocialIcons />
           </div>
           <a href={ctaHref} className="btn btn-primary small">
+            {ctaLabel}
+          </a>
+        </div>
+
+        <div className="mobile-nav-links" aria-label="Navegação rápida">
+          {navItems.map((item) => (
+            <a key={item.href} href={item.href} className="btn btn-ghost small nav-link-pill">
+              {item.label}
+            </a>
+          ))}
+          <a href={locationHref} className="btn btn-ghost small nav-link-pill">
+            Localização
+          </a>
+          <a href={ctaHref} className="btn btn-primary small mobile-nav-cta">
             {ctaLabel}
           </a>
         </div>
@@ -125,16 +141,6 @@ export function SiteFooter() {
           <p>Seg. a sex.: 8h30 às 16h</p>
           <div className="socials">
             <SocialIcons />
-            <a
-              href="https://www.youtube.com/channel/UC9U2chZnaH600fvoTUFjdCA"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="YouTube"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M21.3 7.4c-.2-.9-.9-1.5-1.8-1.8C17.8 5 12 5 12 5s-5.8 0-7.5.6c-.9.3-1.6.9-1.8 1.8C2 9.1 2 12 2 12s0 2.9.7 4.6c.2.9.9 1.5 1.8 1.8 1.7.6 7.5.6 7.5.6s5.8 0 7.5-.6c.9-.3 1.6-.9 1.8-1.8.7-1.7.7-4.6.7-4.6s0-2.9-.7-4.6ZM10 15.2V8.8l5.2 3.2-5.2 3.2Z" />
-              </svg>
-            </a>
           </div>
         </article>
       </div>
