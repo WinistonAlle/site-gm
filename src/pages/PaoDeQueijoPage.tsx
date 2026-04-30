@@ -82,13 +82,6 @@ const lines = [
   },
 ];
 
-const preparationSteps = [
-  "Pré-aqueça o forno a 200°C ou na posição do médio.",
-  "Distribua os pães de queijo em uma assadeira untada, deixando um espaço de 2 cm entre eles.",
-  "Leve ao forno e asse por aproximadamente 30 minutos.",
-  "Retire do forno quando os pães de queijo estiverem dourados.",
-];
-
 export default function PaoDeQueijoPage() {
   return (
     <ProductCategoryPage
@@ -97,9 +90,9 @@ export default function PaoDeQueijoPage() {
       heroImage={lines[0].image}
       heroLabel="Linha de pão de queijo"
       lines={lines}
-      prepTitle="Forno elétrico ou forno convencional"
-      prepDescription="Sequência organizada a partir da página oficial da linha de pão de queijo."
-      preparationSteps={preparationSteps}
+      prepTitle="Preparo do pão de queijo em vídeo"
+      prepDescription="Assista ao preparo recomendado para a linha de pão de queijo."
+      prepVideo="https://www.youtube.com/embed/KlMNCJ-KtUA"
     />
   );
 }

@@ -206,10 +206,8 @@ export default function HomePage() {
 
           <div className="hero-story-banner">
             <div className="hero-story-overlay">
-              <h1>Pão de queijo, broas, massas e pães para o seu negócio vender mais</h1>
-              <p>
-                Produção padronizada para padarias, supermercados, distribuidores e food service com giro, variedade e consistência.
-              </p>
+              <h1>Pães e massas para o seu negócio vender mais</h1>
+              <p>Produção padronizada para padarias, mercados e food service.</p>
               <div className="hero-cta-row">
                 <a href="#produtos" className="hero-story-cta hero-story-cta-secondary">
                   Ver produtos
@@ -217,11 +215,6 @@ export default function HomePage() {
                 <a href="https://wa.me/5561985941557" className="hero-story-cta" target="_blank" rel="noreferrer">
                   Falar no WhatsApp
                 </a>
-              </div>
-              <div className="hero-proof-strip" aria-label="Indicadores principais">
-                <span>+120 SKUs</span>
-                <span>+7.000 empresas atendidas</span>
-                <span>atendimento B2B</span>
               </div>
             </div>
           </div>
@@ -231,7 +224,7 @@ export default function HomePage() {
       <main>
         <section className="section spotlight" id="destaques">
           <div className="shell">
-            <h2>Gostinho Mineiro</h2>
+            <h2>#GostinhoMineiro</h2>
 
             <div className="spotlight-strip">
               {spotlightPanels.map((panel, index) => (
@@ -272,16 +265,17 @@ export default function HomePage() {
             className="hero-story-banner"
             style={{ backgroundImage: 'url("/gm-assets/Gostinho-Mineiro-5-.png")' }}
           >
-            <div className="hero-story-overlay">
+            <div className="hero-story-overlay hero-story-overlay-detail">
               <h1>Produção em escala com padrão de qualidade</h1>
               <p>
-                Estrutura preparada para atender redes, distribuidores e operações de food
-                service com previsibilidade, consistência e segurança no fornecimento.
+                Estrutura preparada para atender redes, distribuidores e food service com consistência no fornecimento.
               </p>
-              <h3>Parceria comercial para crescer junto com o cliente</h3>
-              <p>
-                Da escolha da linha ideal ao abastecimento da operação, apoiamos sua empresa com uma rotina comercial mais simples.
-              </p>
+              <div className="hero-story-detail-copy">
+                <h3>Parceria comercial para crescer junto</h3>
+                <p>
+                  Apoiamos a escolha do mix ideal e deixamos a rotina de compras mais simples.
+                </p>
+              </div>
               <a href="https://wa.me/5561985941557" className="hero-story-cta" target="_blank" rel="noreferrer">
                 Falar no WhatsApp
               </a>
@@ -291,7 +285,8 @@ export default function HomePage() {
 
         <section className="section products" id="produtos">
           <div className="shell">
-            <h2 className="reveal d1">Uma linha completa para diferentes perfis de operação</h2>
+            <p className="script-section-title">Nossos produtos</p>
+            <h2 className="reveal d2">Linha completa para sua operação</h2>
 
             <div className="product-grid">
               {products.map((item, index) => (
@@ -314,7 +309,13 @@ export default function HomePage() {
         <section className="section" id="numeros">
           <div className="shell">
             <div className="numbers-box reveal" ref={numbersBoxRef} style={numbersParallaxStyle}>
-              <h2 className="reveal d2">Uma operação preparada para atender o mercado com escala</h2>
+              <div className="numbers-copy">
+                <p className="numbers-kicker reveal d1">Estrutura comercial e produtiva</p>
+                <h2 className="reveal d2">Uma operação pronta para atender com escala</h2>
+                <p className="numbers-lead reveal d3">
+                  Capacidade, variedade e atendimento para abastecer diferentes canais com padrão constante.
+                </p>
+              </div>
               <div className="numbers-grid">
                 {animatedStats.map((stat, index) => (
                   <AnimatedStat
@@ -326,6 +327,31 @@ export default function HomePage() {
                     delay={index * 140}
                   />
                 ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section brand-story" aria-label="Diferenciais da marca">
+          <div className="brand-story-shell">
+            <div
+              className="hero-story-banner brand-story-banner"
+              style={{ backgroundImage: 'url("/gm-assets/Gostinho-Mineiro-6-.png")' }}
+            >
+              <div className="hero-story-overlay brand-story-overlay">
+                <h2>Tradição mineira com padrão para vender bem todos os dias</h2>
+                <p className="brand-story-intro">
+                  Cada produto nasce do sabor que o consumidor reconhece e da consistência que a sua operação precisa para crescer com previsibilidade.
+                </p>
+                <h3>Parceria comercial para crescer junto com o cliente</h3>
+                <p>
+                  Da escolha da linha ideal ao abastecimento da operação, apoiamos sua empresa com uma rotina comercial mais simples, previsível e preparada para manter o giro.
+                </p>
+                <div className="brand-story-cta-row">
+                  <a href="https://wa.me/5561985941557" className="hero-story-cta" target="_blank" rel="noreferrer">
+                    Falar no WhatsApp
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -366,33 +392,43 @@ export default function HomePage() {
 
             <form className="contact-form glass reveal d3" onSubmit={(e) => e.preventDefault()}>
               <header className="form-head">
+                <span className="form-kicker">Atendimento rápido</span>
                 <h3>Envie sua mensagem</h3>
                 <p>Retornamos em breve com o melhor atendimento comercial para sua operação.</p>
               </header>
-              <label>
-                Nome
-                <input placeholder="Escreva seu nome" />
-              </label>
-              <label>
-                Empresa
-                <input placeholder="Qual é o nome da sua empresa" />
-              </label>
-              <div className="two-cols">
+              <div className="contact-form-promise">
+                <strong>Atendimento comercial por WhatsApp, telefone ou e-mail.</strong>
+                <span>Preencha os dados essenciais e nossa equipe retorna com rapidez para entender sua demanda.</span>
+              </div>
+              <div className="contact-form-fields">
                 <label>
-                  Contato
-                  <input placeholder="Qual é o seu número" />
+                  Nome
+                  <input placeholder="Escreva seu nome" autoComplete="name" />
                 </label>
                 <label>
-                  E-mail
-                  <input placeholder="E-mail" />
+                  Empresa
+                  <input placeholder="Qual é o nome da sua empresa" autoComplete="organization" />
+                </label>
+                <div className="two-cols">
+                  <label>
+                    Contato
+                    <input placeholder="Qual é o seu número" inputMode="tel" autoComplete="tel" />
+                  </label>
+                  <label>
+                    E-mail
+                    <input placeholder="E-mail" inputMode="email" autoComplete="email" />
+                  </label>
+                </div>
+                <label>
+                  Mensagem
+                  <textarea placeholder="Conte um pouco sobre seu negócio e seu interesse" rows={5} />
                 </label>
               </div>
-              <label>
-                Mensagem
-                <textarea placeholder="Conte um pouco sobre seu negócio e seu interesse" rows={5} />
-              </label>
               <div className="form-submit">
-                <span>Resposta média em até 1 dia útil.</span>
+                <div className="form-submit-copy">
+                  <strong>Resposta média em até 1 dia útil.</strong>
+                  <span>Se preferir, você também pode seguir direto para o WhatsApp comercial.</span>
+                </div>
                 <button type="submit" className="btn btn-primary">
                   Enviar mensagem
                 </button>

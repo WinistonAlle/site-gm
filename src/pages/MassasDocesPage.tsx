@@ -98,6 +98,9 @@ export default function MassasDocesPage() {
       heroImage={lines[0].image}
       heroLabel="Linha de massas doces"
       lines={lines}
+      prepTitle="Preparo das massas doces em vídeo"
+      prepDescription="Assista ao preparo recomendado para a linha de massas doces."
+      prepVideo="https://www.youtube.com/embed/k0P8-kMCReA"
     />
   );
 }

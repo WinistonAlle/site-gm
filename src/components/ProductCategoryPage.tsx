@@ -24,6 +24,17 @@ type ProductCategoryPageProps = {
   preparationSteps?: string[];
 };
 
+function formatList(items: string[]) {
+  if (items.length <= 1) return items[0] ?? "";
+  return `${items.slice(0, -1).join(", ")} e ${items[items.length - 1]}`;
+}
+
+function summarizePackaging(values: string[]) {
+  const sizes = values.flatMap((value) => value.match(/\d+(?:,\d+)?\s*(?:kg|g)/gi) ?? []);
+  const uniqueSizes = Array.from(new Set(sizes.map((size) => size.replace(/\s+/g, ""))));
+  return formatList(uniqueSizes) || values.join(" | ") || "Consulte a equipe";
+}
+
 export default function ProductCategoryPage({
   heroTitle,
   heroDescription,
@@ -44,6 +55,7 @@ export default function ProductCategoryPage({
         .map((spec) => spec.value),
     ),
   );
+  const packagingSummary = summarizePackaging(packagingSet);
   const highlightSet = Array.from(new Set(lines.flatMap((line) => line.highlights))).slice(0, 4);
 
   useLayoutEffect(() => {
@@ -111,18 +123,28 @@ export default function ProductCategoryPage({
                 </div>
               </div>
 
-              <div className="product-summary-metrics">
-                <article>
+              <div className="product-summary-visual" aria-hidden="true">
+                <span className="product-summary-visual-glow" />
+                <img src={heroImage} alt="" loading="lazy" />
+              </div>
+
+              <div className="product-summary-metrics" aria-label="Resumo comercial da linha">
+                <article className="product-summary-metric-main">
                   <small>Linhas disponíveis</small>
                   <strong>{lineCount}</strong>
+                  <span>opções comerciais para diferentes rotinas de venda</span>
                 </article>
                 <article>
                   <small>Embalagens</small>
-                  <strong>{packagingSet.slice(0, 2).join(" | ") || "Consulte a equipe"}</strong>
+                  <strong>{packagingSummary}</strong>
                 </article>
                 <article>
                   <small>Destaques</small>
-                  <strong>{highlightSet.join(" • ")}</strong>
+                  <div className="product-summary-chips">
+                    {highlightSet.map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
                 </article>
               </div>
             </div>
@@ -189,24 +211,26 @@ export default function ProductCategoryPage({
           </div>
         </section>
 
-        {preparationSteps.length ? (
+        {preparationSteps.length || prepVideo ? (
           <section className="section prep-section">
             <div className="shell">
               <div className="prep-card glass reveal">
                 <div className="prep-head">
                   <p className="eyebrow">Modo de preparo</p>
-                  <h2>{prepTitle ?? "Forno elétrico ou forno convencional"}</h2>
+                  <h2>{prepTitle ?? "Modo de preparo em vídeo"}</h2>
                   {prepDescription ? <p>{prepDescription}</p> : null}
                 </div>
 
-                <div className="prep-grid">
-                  {preparationSteps.map((step, index) => (
-                    <article className={`prep-step reveal d${(index % 4) + 1}`} key={step}>
-                      <span className="prep-step-number">{index + 1}</span>
-                      <p>{step}</p>
-                    </article>
-                  ))}
-                </div>
+                {preparationSteps.length ? (
+                  <div className="prep-grid">
+                    {preparationSteps.map((step, index) => (
+                      <article className={`prep-step reveal d${(index % 4) + 1}`} key={step}>
+                        <span className="prep-step-number">{index + 1}</span>
+                        <p>{step}</p>
+                      </article>
+                    ))}
+                  </div>
+                ) : null}
 
                 {prepVideo ? (
                   <div className="prep-video reveal d2">

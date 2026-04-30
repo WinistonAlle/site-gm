@@ -62,14 +62,6 @@ const lines = [
   },
 ];
 
-const preparationSteps = [
-  "Coloque o produto em assadeira própria para pão francês untada com desmoldante.",
-  "Deixe o pão descongelar e fermentar em armário de crescimento durante o tempo indicado para o tipo de produto.",
-  "Observe a temperatura ambiente, porque ela influencia o tempo de fermentação para mais ou para menos.",
-  "Pré-aqueça o forno entre 170°C e 200°C.",
-  "Faça o corte no produto e asse em forno a vapor por aproximadamente 15 minutos.",
-];
-
 export default function PaoFrancesPage() {
   return (
     <ProductCategoryPage
@@ -78,9 +70,9 @@ export default function PaoFrancesPage() {
       heroImage={lines[0].image}
       heroLabel="Linha de pão francês"
       lines={lines}
-      prepTitle="Fermentação e assamento"
-      prepDescription="Orientações baseadas na página oficial do pão francês tradicional."
-      preparationSteps={preparationSteps}
+      prepTitle="Preparo do pão francês em vídeo"
+      prepDescription="Assista ao preparo recomendado para a linha de pão francês."
+      prepVideo="https://www.youtube.com/embed/K2Zgyl0VgHg"
     />
   );
 }

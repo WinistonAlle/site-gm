@@ -95,13 +95,6 @@ const lines = [
   },
 ];
 
-const preparationSteps = [
-  "Pré-aqueça o forno a 200°C ou na posição do médio.",
-  "Distribua os biscoitos de queijo em uma assadeira untada, deixando um espaço de 2 cm entre eles.",
-  "Leve ao forno e asse por aproximadamente 30 minutos.",
-  "Retire do forno quando os biscoitos de queijo estiverem dourados.",
-];
-
 export default function BiscoitoDeQueijoPage() {
   return (
     <ProductCategoryPage
@@ -110,9 +103,9 @@ export default function BiscoitoDeQueijoPage() {
       heroImage={lines[0].image}
       heroLabel="Linha de biscoito de queijo"
       lines={lines}
-      prepTitle="Forno elétrico ou forno convencional"
-      prepDescription="Passos organizados a partir da página oficial da linha de biscoitos de queijo."
-      preparationSteps={preparationSteps}
+      prepTitle="Preparo do biscoito de queijo em vídeo"
+      prepDescription="Assista ao preparo recomendado para a linha de biscoitos de queijo."
+      prepVideo="https://www.youtube.com/embed/ELxTxW90Ab0"
     />
   );
 }
