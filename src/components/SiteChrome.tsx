@@ -1,9 +1,39 @@
+import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
 type NavItem = {
   label: string;
   href: string;
 };
+
+function SiteLink({
+  href,
+  className,
+  children,
+  ariaLabel,
+}: {
+  href: string;
+  className?: string;
+  children: ReactNode;
+  ariaLabel?: string;
+}) {
+  const isInternalRoute = href.startsWith("/") || href.startsWith("#");
+
+  if (!isInternalRoute) {
+    return (
+      <a href={href} className={className} aria-label={ariaLabel}>
+        {children}
+      </a>
+    );
+  }
+
+  const to = href.startsWith("#") ? `/${href}` : href;
+  return (
+    <Link to={to} className={className} aria-label={ariaLabel}>
+      {children}
+    </Link>
+  );
+}
 
 function SocialIcons() {
   return (
@@ -70,19 +100,19 @@ export function SiteNav({
       <nav className="nav glass reveal">
         <div className="nav-links nav-left">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="btn btn-ghost small nav-link-pill">
+            <SiteLink key={item.href} href={item.href} className="btn btn-ghost small nav-link-pill">
               {item.label}
-            </a>
+            </SiteLink>
           ))}
-          <a href={locationHref} className="btn btn-ghost small nav-link-pill nav-locate">
+          <SiteLink href={locationHref} className="btn btn-ghost small nav-link-pill nav-locate">
             Localização
-          </a>
+          </SiteLink>
         </div>
 
         {homeAsAnchor ? (
-          <a href="#topo" className="brand" aria-label="Gostinho Mineiro">
+          <SiteLink href="#topo" className="brand" ariaLabel="Gostinho Mineiro">
             <img src="/gm-assets/Logo-site-Gostinho-Mineiro.png" alt="Gostinho Mineiro" />
-          </a>
+          </SiteLink>
         ) : (
           <Link to="/" className="brand" aria-label="Gostinho Mineiro">
             <img src="/gm-assets/Logo-site-Gostinho-Mineiro.png" alt="Gostinho Mineiro" />
@@ -100,13 +130,13 @@ export function SiteNav({
 
         <div className="mobile-nav-links" aria-label="Navegação rápida">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="btn btn-ghost small nav-link-pill">
+            <SiteLink key={item.href} href={item.href} className="btn btn-ghost small nav-link-pill">
               {item.label}
-            </a>
+            </SiteLink>
           ))}
-          <a href={locationHref} className="btn btn-ghost small nav-link-pill">
+          <SiteLink href={locationHref} className="btn btn-ghost small nav-link-pill">
             Localização
-          </a>
+          </SiteLink>
           <a href={ctaHref} className="btn btn-primary small mobile-nav-cta">
             {ctaLabel}
           </a>
@@ -130,8 +160,8 @@ export function SiteFooter() {
         <article className="footer-links">
           <h4>Links</h4>
           <Link to="/">Início</Link>
-          <a href="/#produtos">Produtos</a>
-          <a href="/#contato">Contato</a>
+          <Link to="/#produtos">Produtos</Link>
+          <Link to="/#contato">Contato</Link>
         </article>
 
         <article className="footer-contact">

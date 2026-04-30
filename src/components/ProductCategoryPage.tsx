@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { FloatingWhatsapp, SiteFooter, SiteNav } from "./SiteChrome";
 
 type ProductLine = {
@@ -57,10 +57,6 @@ export default function ProductCategoryPage({
   );
   const packagingSummary = summarizePackaging(packagingSet);
   const highlightSet = Array.from(new Set(lines.flatMap((line) => line.highlights))).slice(0, 4);
-
-  useLayoutEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
