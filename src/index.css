@@ -2555,11 +2555,11 @@ h2 {
 
 @media (max-width: 640px) {
   .shell {
-    width: min(100%, calc(100vw - 24px));
+    width: min(100%, calc(100vw - 22px));
   }
 
   .hero {
-    padding: 10px 0 24px;
+    padding: 8px 0 28px;
   }
 
   .section {
@@ -2573,23 +2573,46 @@ h2 {
   .nav {
     position: sticky;
     top: 8px;
-    border-radius: 22px;
-    padding: 14px;
-    gap: 12px;
+    border-radius: 24px;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .brand img {
+    width: 96px;
+  }
+
+  .mobile-nav-links {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .mobile-nav-links .nav-link-pill {
+    min-height: 42px;
+    padding-inline: 10px;
+    font-size: 0.78rem;
+  }
+
+  .mobile-nav-cta {
+    min-height: 44px;
+    font-size: 0.86rem;
   }
 
   .hero-story-banner {
-    min-height: calc(100svh - 92px);
-    border-radius: 28px;
-    background-position: center 20%;
-    background-size: auto 112%;
+    min-height: clamp(430px, 118vw, 560px);
+    border-radius: 26px;
+    background-position: center center;
+    background-size: cover;
   }
 
   .hero-story-overlay {
     min-height: inherit;
-    align-content: end;
-    gap: 12px;
-    padding: 120px 16px 18px;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+    gap: 14px;
+    padding: 30px 18px;
+    background: linear-gradient(180deg, rgba(17, 9, 7, 0.48) 0%, rgba(17, 9, 7, 0.66) 100%);
   }
 
   .hero-story-secondary .hero-story-overlay-detail {
@@ -2598,16 +2621,16 @@ h2 {
   }
 
   .hero-story-overlay h1 {
-    max-width: 8.5ch;
-    font-size: clamp(2.15rem, 13vw, 3.5rem);
-    line-height: 0.92;
-    letter-spacing: -0.06em;
+    max-width: 11ch;
+    font-size: clamp(2.25rem, 11vw, 3.35rem);
+    line-height: 0.96;
+    letter-spacing: -0.05em;
   }
 
   .hero-story-overlay p {
-    max-width: 25ch;
+    max-width: 29ch;
     font-size: 0.95rem;
-    line-height: 1.45;
+    line-height: 1.5;
   }
 
   .hero-story-overlay-detail h1 {
@@ -2620,7 +2643,8 @@ h2 {
   }
 
   .hero-story-cta {
-    width: 100%;
+    width: auto;
+    min-width: min(100%, 220px);
     padding: 14px 18px;
   }
 
@@ -2631,6 +2655,43 @@ h2 {
 
   .spotlight-panel {
     min-height: 274px;
+  }
+
+  .spotlight-strip {
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    overflow-x: visible;
+    padding-bottom: 0;
+    scroll-snap-type: none;
+  }
+
+  .spotlight-panel,
+  .spotlight-panel.is-active {
+    min-height: 310px;
+    flex: initial;
+    scroll-snap-align: none;
+    box-shadow: 0 18px 30px rgba(50, 26, 20, 0.14);
+  }
+
+  .spotlight-panel img,
+  .spotlight-panel.is-active img {
+    transform: none;
+    filter: none;
+  }
+
+  .spotlight-panel::after,
+  .spotlight-panel.is-active::after {
+    background:
+      linear-gradient(180deg, rgba(15, 9, 7, 0.06) 0%, rgba(15, 9, 7, 0.2) 42%, rgba(15, 9, 7, 0.86) 100%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0) 34%, rgba(18, 10, 8, 0.18) 100%);
+  }
+
+  .spotlight-panel .spotlight-copy,
+  .spotlight-panel.is-active .spotlight-copy {
+    opacity: 1;
+    transform: none;
   }
 
   .spotlight-copy p {
@@ -2733,24 +2794,19 @@ h2 {
 
   .product-grid {
     display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(74vw, 1fr);
-    grid-template-columns: none;
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
-    overflow-x: auto;
-    padding-bottom: 6px;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .product-grid::-webkit-scrollbar {
-    display: none;
+    overflow-x: visible;
+    padding-bottom: 0;
+    scroll-snap-type: none;
   }
 
   .product-card {
     border-radius: 20px;
     padding: 10px;
-    scroll-snap-align: start;
+    scroll-snap-align: none;
   }
 
   .product-card h3 {
@@ -2782,13 +2838,14 @@ h2 {
   }
 
   .product-summary-shell {
-    padding: 18px;
-    gap: 14px;
+    padding: 20px;
+    gap: 18px;
   }
 
   .product-summary-copy h2 {
     max-width: none;
-    font-size: clamp(2rem, 10vw, 3rem);
+    font-size: clamp(1.9rem, 9vw, 2.75rem);
+    line-height: 1;
   }
 
   .product-summary-actions {
@@ -2796,7 +2853,7 @@ h2 {
   }
 
   .product-summary-visual {
-    min-height: 260px;
+    min-height: 230px;
   }
 
   .product-summary-visual img {
@@ -2810,6 +2867,7 @@ h2 {
 
   .product-summary-metrics article {
     min-height: auto;
+    padding: 15px;
   }
 
   .broa-card {
@@ -2920,10 +2978,10 @@ h2 {
 
   .floating-whatsapp {
     left: auto;
-    right: 12px;
-    bottom: 12px;
-    width: 58px;
-    height: 58px;
+    right: 10px;
+    bottom: 10px;
+    width: 54px;
+    height: 54px;
     padding: 0;
     justify-content: center;
     border-radius: 999px;
@@ -2934,8 +2992,8 @@ h2 {
   }
 
   .floating-whatsapp-icon {
-    width: 58px;
-    height: 58px;
+    width: 54px;
+    height: 54px;
     background: transparent;
   }
 
@@ -2947,23 +3005,32 @@ h2 {
 
 @media (max-width: 420px) {
   .hero-story-banner {
-    min-height: calc(100svh - 86px);
-    background-position: center 18%;
-    background-size: auto 108%;
+    min-height: 440px;
+    background-position: center center;
+    background-size: cover;
   }
 
   .hero-story-overlay h1 {
-    font-size: clamp(2rem, 14vw, 3.2rem);
+    font-size: clamp(2rem, 10.5vw, 3rem);
   }
 
   .mobile-nav-links {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mobile-nav-links .nav-link-pill:nth-of-type(3) {
+    grid-column: 1 / -1;
   }
 
   .mobile-nav-links .nav-link-pill,
   .mobile-nav-cta {
-    min-height: 46px;
-    font-size: 0.82rem;
+    min-height: 42px;
+    font-size: 0.78rem;
+  }
+
+  .mobile-nav-cta {
+    grid-column: 1 / -1;
+    font-size: 0.86rem;
   }
 
   .products h2 {
@@ -2987,12 +3054,9 @@ h2 {
     min-height: 48px;
   }
 
-  .spotlight-strip {
-    grid-auto-columns: minmax(78vw, 1fr);
-  }
-
-  .product-grid {
-    grid-auto-columns: minmax(82vw, 1fr);
+  .spotlight-panel {
+    min-height: 286px;
+    border-radius: 24px;
   }
 }
 
